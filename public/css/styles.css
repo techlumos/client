@@ -1,0 +1,601 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@font-face {
+  font-family: "Roboto-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto-Regular"), local("Roboto-Regular"),
+    url("/fonts/Roboto-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto-Light";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Roboto-Light"), local("Roboto-Light"),
+    url("/fonts/Roboto-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto-Thin";
+  font-style: normal;
+  font-weight: 100;
+  src: local("Roboto-Thin"), local("Roboto-Thin"),
+    url("/fonts/Roboto-Thin.ttf") format("truetype");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto-Light", sans-serif;
+  height: 100vh; /* Set body height to 100% of viewport height */
+  width: 100%; /* Set body width to 100% of viewport width */
+  overflow-x: hidden;
+}
+body h1 {
+  font-family: "Roboto-Regular", sans-serif;
+}
+/* nav section */
+.nav-container {
+  display: flex;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  gap: 40px;
+  font-family: Roboto-Light;
+  flex-wrap: wrap;
+}
+
+.nav-container-elements {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  gap: 60px;
+  font-size: 1.2em;
+  margin-bottom: 10px; /* Add margin bottom to create space between logo and menu items on small screens */
+  flex: 1; /* Expand to take remaining space */
+  flex-wrap: wrap; /* Allow items to wrap onto the next line */
+}
+.nav-container-elements a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-container button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Hero-Section */
+.hero-container {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  text-align: left;
+  color: white;
+  background-color: black;
+  position: relative;
+  /* animation: fadeInBackground 1.5s ease infinite alternate, zoomBackground 10s linear infinite;;  */
+}
+
+@keyframes fadeInBackground {
+  from {
+    opacity: 0.96;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes zoomBackground {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.01);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2%;
+  max-width: 700px;
+  margin-top: 30%;
+  margin-left: 15%;
+}
+.title {
+  font-size: 5.5rem; /* Adjust the font size as needed */
+  color: white; /* Make the text transparent initially */
+  white-space: nowrap; /* Prevent the text from wrapping */
+  overflow: hidden; /* Hide any overflow */
+  border-right: 0.15em solid white; /* Create a blinking cursor effect */
+  animation: typing 2s steps(20, end), blink-caret 2s infinite alternate;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Animation for blinking cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}
+.subtitle {
+  font-family: "Roboto-Thin", sans-serif;
+  font-size: 3.5rem; /* Adjust the font size as needed */
+  margin-bottom: 50px;
+  color: orange;
+  line-height: 1.2;
+  animation: slideFromRight 1s forwards;
+}
+@keyframes slideFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/*  */
+.img-container {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  position: relative;
+}
+.front-container-bg {
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.front-container-bg.show {
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* front-container */
+.front-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.6);
+  max-width: 500px;
+  max-height: 800px;
+  height: fit-content;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 20%;
+  color: white;
+  left: 60%;
+  animation: slideFromLeft 0.5s ease forwards;
+}
+.front-container h1 {
+  font-size: 5rem;
+  margin-bottom: 20px;
+}
+.front-container h1 span {
+  color: orange;
+}
+.front-container .typing {
+  font-size: 2rem;
+  font-family: "Roboto-Thin", sans-serif;
+  line-height: 1.5;
+  margin-bottom: 50px;
+  display: inline-block; /* Display as inline block */
+  width: 100%; /* Limit width to 100% of the container */
+  overflow: hidden; /* Ensure text doesn't overflow */
+  max-height: 150px;
+  animation: typing 2s steps(30, end) forwards;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* tailored */
+.tailored-container {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  box-shadow: none;
+  height: fit-content;
+  padding: 20px;
+  position: absolute;
+  top: 10%;
+  left: 35%;
+  animation: slideFromLeft 0.5s ease forwards;
+  max-width: 700px;
+}
+.tailored-container .typing {
+  margin-bottom: 30px;
+}
+
+.test {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin-bottom: 50px;
+}
+.bar {
+  background-color: orange;
+  width: 10px;
+  margin-right: 10px;
+}
+.content p {
+  font-family: "Roboto-Regular", sans-serif;
+  margin-bottom: 0px;
+  font-size: 3rem;
+}
+.tailored-container a {
+  color: orange;
+  font-family: "Roboto-Regular", sans-serif;
+  font-size: 2.2rem;
+  text-decoration: none;
+}
+
+/* greenlighting section */
+.green-lighting-container {
+  top: 20%;
+  left: 10%;
+  color: black;
+}
+.green-lighting-container h1 span {
+  color: #2764a3;
+  font-family: "Roboto-Thin";
+}
+
+.green-lighting-container .content {
+  max-width: 600px;
+}
+.green-lighting-container .content p:first-child {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+.green-lighting-container .content p:nth-child(2) {
+  font-family: "Roboto-Thin";
+  font-size: 2rem;
+}
+.green-lighting-container .typing {
+  height: 120px;
+}
+
+/* core competence */
+.container-core {
+  max-width: 100%;
+  margin: 0 10%;
+}
+
+.core-text h2 {
+  font-family: "Roboto-Regular";
+  font-size: 5rem;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+.core-text span {
+  font-family: "Roboto-Thin";
+  color: #2764a3;
+}
+
+.core-text p {
+  font-family: "Roboto-Thin";
+  font-size: 2.5rem;
+  text-align: right;
+  margin-bottom: 30px;
+}
+.intro-img {
+  padding: 100px;
+  /* Initial state */
+  transform: scale(1);
+  transition: transform 0.5s ease; /* Add transition for smooth animation */
+
+  /* Keyframes for zooming */
+  animation: zoomIn 3s forwards; /* Adjust duration as needed */
+}
+
+@keyframes zoomIn {
+  100% {
+    transform: scale(1); /* Start with normal scale */
+  }
+  90% {
+    transform: scale(1.2);
+  }
+  0% {
+    transform: scale(0.2);
+  }
+}
+.intro-text-2 p {
+  font-size: 2rem;
+  font-family: "Roboto-Thin";
+  letter-spacing: 0.01em;
+}
+
+@keyframes moveBg {
+  from {
+    background-position: 0 50%;
+  }
+  to {
+    background-position: -1134px 50%;
+  }
+}
+/* carosal */
+.carousel {
+  --blur: 6px;
+  --contrast: 105%;
+  --speed: 25s;
+  height: 100px;
+  max-width: 100vw;
+  width: 100%;
+  position: relative;
+
+  .mask {
+    position: absolute;
+    inset: 0;
+    background: #0000;
+    backdrop-filter: blur(var(--blur)) contrast(var(--contrast));
+    -webkit-backdrop-filter: blur(var(--blur)) contrast(var(--contrast)); /* so it works on Safari */
+    -webkit-mask: linear-gradient(
+      90deg,
+      #000 50px,
+      #0000 175px calc(100% - 175px),
+      #fff calc(100% - 50px)
+    );
+    pointer-events: none;
+  }
+
+  .logos {
+    animation: moveBg var(--speed) linear infinite;
+    position: absolute;
+    inset: 0;
+    /* background: url(/images/Technology_Alliances_Logos.webp); */
+    background-position: 0 50%, left top, left top, left top, left top, left top;
+    background-size: 100% 70px, auto, auto, auto, auto, auto;
+    background-repeat: repeat-x, no-repeat, no-repeat, no-repeat, no-repeat,
+      no-repeat;
+    -webkit-mask: linear-gradient(
+      90deg,
+      #0000 5px,
+      #000 50px calc(100% - 50px),
+      #0000 calc(100% - 5px)
+    );
+  }
+}
+
+/* Case Study */
+.case-study {
+  display: flex;
+  flex-direction: column; /* or row, depending on your layout */
+  margin: 50px 0;
+}
+.study-container {
+  display: flex;
+  flex-direction: column;
+
+  margin: 10px;
+}
+
+.study-container h2 {
+  font-size: 4rem;
+}
+.study-container span {
+  color: #2764a3;
+  font-family: "Roboto-Light";
+  margin-left: 0.2em;
+}
+.study-container p {
+  font-family: "Roboto-Light";
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+.study-container .test {
+  margin-bottom: 10px;
+}
+.study-container .test h4 {
+  font-family: "Roboto-Regular";
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.study-container .test p {
+  font-family: "Roboto-Light";
+  font-size: 1.6rem;
+  margin-bottom: 0px;
+}
+.case-study-links {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+.case-study-links div {
+  margin: 5px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+}
+.case-study-links h5 {
+  font-size: 2vw;
+  font-family: Roboto-Regular;
+}
+.case-study-links p {
+  font-size: 1.2vw;
+  font-family: Roboto-Thin;
+  margin-bottom: 10px;
+}
+
+.case-study-links div:last-child {
+  border-bottom: none;
+}
+
+/* footer */
+.footer {
+  background-color: #000;
+  color: white;
+  margin: 0 20px;
+  padding: 10px 30px;
+}
+.footer p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #fff;
+  padding: 5px;
+  margin-left: 10px;
+}
+.footer a {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #fff;
+  padding: 5px;
+  margin-left: 10px;
+}
+.footer-icons {
+  margin-top: 20px;
+}
+.footer-icons a {
+  font-size: 1.6rem;
+  color: #007bff;
+}
+.footer-sub p {
+  font-family: "Roboto-Thin";
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+/* review */
+.rating-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0px 0px 0px;
+}
+
+.rating-items {
+  margin: 0 200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+.rating-items h1 {
+  /* border: #000 solid 1px; */
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 5rem;
+  font-family: "Roboto-Light";
+}
+.rating-items span {
+  /* border: #000 solid 1px; */
+  color: #2764a3;
+  font-family: "Roboto-Regular";
+}
+.rating-items p {
+  /* border: #000 solid 1px; */
+  font-family: "Roboto-Light";
+  font-size: 2rem;
+  margin-right: 30%;
+  margin-bottom: 30px;
+}
+.rating-user {
+  max-width: 1000px;
+}
+
+.review h3 {
+  font-family: "Roboto-Thin";
+  font-size: 1.3rem;
+}
+.review p {
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-style: italic;
+  font-family: "Roboto-Thin";
+}
+.review .rating {
+  max-width: 100px;
+  margin-bottom: 10px;
+}
+.review .comments {
+  margin-bottom: 20px;
+}
+/* img sponsors */
+.image-container {
+  width: 100%;
+  margin: 50px;
+  height: 100px;
+
+  overflow: hidden; /* Ensure the image does not overflow the container */
+  position: relative; /* Needed for absolute positioning */
+}
+
+.image-container::before {
+  content: ""; /* Create a pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%; /* Set the width to twice the container width to ensure seamless repetition */
+  height: 100%;
+  background-image: url('/images/clientele_Logos.webp'); /* Replace 'images/clientele_Logos.webp' with your image path */
+  background-repeat: repeat-x; /* Repeat the image horizontally */
+  animation: slideImage 25s linear infinite; /* Adjust the duration as needed */
+}
+
+@keyframes slideImage {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
